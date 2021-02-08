@@ -32,7 +32,7 @@ year: `1983`
 { 
 quote: `The softest things in the world overcome the hardest things in the world.`,
 source: `Lao-Tsu`,
-citation: `Twitter`,
+citation: `Tao Te Ching`,
 year: `unknown`
 },
 { 
@@ -62,29 +62,25 @@ year: `1963`
 
 let selectedQuote;
 let numberOfQuotes;
-let randomQuote = function getRandomQuote(quotes) {
+function getRandomQuote(quotes) {
   numberOfQuotes = quotes.length;
   selectedQuote = quotes[Math.floor(Math.random()* numberOfQuotes )]; 
   return selectedQuote;
 }
-// randomQuote();
-getRandomQuote(quotes);
-// console.log(selectedQuote);
 /***
  * `printQuote` function
 ***/
-function printQuote(selectedQuote) {
-  console.log(selectedQuote.quote)
-let HTMLElement = `<p class="quote">${selectedQuote.quote}</p>
+let addQuote = (selectedQuote) => {
+console.log(selectedQuote);
+  let HTMLElement = `<p class="quote">${selectedQuote.quote}</p>
  <p class="source">${selectedQuote.source}<span class="citation">${selectedQuote.citation}</span><span class="year">${selectedQuote.year}</span></p>`;
 
-document.querySelector('.quote-box').innerHTML = HTMLElement;
+  document.querySelector('.quote-box').innerHTML = HTMLElement;
 }
-
-// printQuote(selectedQuote)
-//  let node1 document.querySelector(".source").innerHTML = selectedQuote.source;
-// document.querySelector(".citation").innerHTML = selectedQuote.citation;
-// document.querySelector(".year").innerHTML = selectedQuote.year;
+function printQuote() {
+  getRandomQuote(quotes);
+  addQuote(selectedQuote);
+}
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
