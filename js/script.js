@@ -10,48 +10,48 @@ project 1 - A Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
-const quotes = [
+let quotes = [
 { 
 quote: `We are always in transition. If you can just relax with that, you'll have no problem.`,
-author: `Chogyam Trungpa`,
-source: `azquotes.com`,
-date: `1977`
+source: `Chogyam Trungpa`,
+citation: `azquotes.com`,
+year: `1977`
 },
 { 
 quote: `I just can't listen to any more Wagner, you know...I'm starting to get the urge to conquer Poland.`,
-author: `Woody Allen`,
-source: `azquotes.com`,
-date: `1977`
+source: `Woody Allen`,
+citation: `azquotes.com`,
+year: `1977`
 },
 { 
 quote: `The greatest glory in living lies not in never falling, but in rising every time we fall.`,
-author: `Nelson`,
-source: `libquotes.com`,
-date: `1983`
+source: `Nelson Mandela`,
+citation: `libquotes.com`,
+year: `1983`
 },
 { 
 quote: `The softest things in the world overcome the hardest things in the world.`,
-author: `Lao-Tsu`,
-source: `Twitter`,
-date: `unknown`
+source: `Lao-Tsu`,
+citation: `Twitter`,
+year: `unknown`
 },
 { 
 quote: `It is our mind, and that alone, that chains us or sets us free.`,
-author: `Dilgo Khientse Rinpoche`,
-source: `azquotes.com`,
-date: `1979`
+source: `Dilgo Khientse Rinpoche`,
+citation: `azquotes.com`,
+year: `1979`
 },
 { 
 quote: `Ideally the ultimate retreat is to retreat from the past and the future to always remain in the present.`,
-author: `Dzongsar Jamyang Khyentse Rinpoche`,
-source: `azquotes.com`,
-date: `1993`
+source: `Dzongsar Jamyang Khyentse Rinpoche`,
+citation: `azquotes.com`,
+year: `1993`
 },
 { 
 quote: `One day you will ask me which is more important? My life or yours? I will say mine and you will walk away not knowing that you are my life.`,
-author: `Khalil Gibran`,
-source: `azquotes.com`,
-date: `1963`
+source: `Khalil Gibran`,
+citation: `azquotes.com`,
+year: `1963`
 }
 ]
 
@@ -60,25 +60,34 @@ date: `1963`
  * `getRandomQuote` function
 ***/
 
-
-
-function getRandomQuote(quotes) {
-
-  let numberOfQuotes = quotes.length;
-let selectedQuote = quotes[Math.floor(Math.random()* numberOfQuotes )]; 
-console.log(selectedQuote);
-return selectedQuote;
+let selectedQuote;
+let numberOfQuotes;
+let randomQuote = function getRandomQuote(quotes) {
+  numberOfQuotes = quotes.length;
+  selectedQuote = quotes[Math.floor(Math.random()* numberOfQuotes )]; 
+  return selectedQuote;
 }
+// randomQuote();
 getRandomQuote(quotes);
+// console.log(selectedQuote);
 /***
  * `printQuote` function
 ***/
+function printQuote(selectedQuote) {
+  console.log(selectedQuote.quote)
+let HTMLElement = `<p class="quote">${selectedQuote.quote}</p>
+ <p class="source">${selectedQuote.source}<span class="citation">${selectedQuote.citation}</span><span class="year">${selectedQuote.year}</span></p>`;
 
+document.querySelector('.quote-box').innerHTML = HTMLElement;
+}
 
-
+// printQuote(selectedQuote)
+//  let node1 document.querySelector(".source").innerHTML = selectedQuote.source;
+// document.querySelector(".citation").innerHTML = selectedQuote.citation;
+// document.querySelector(".year").innerHTML = selectedQuote.year;
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-// document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
