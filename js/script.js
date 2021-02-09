@@ -60,7 +60,7 @@ year: `1963`
  * `getRandomQuote` function
 ***/
 /* The selectedQuote variable stores a randomly selected quote.
- The numberOfQuotes variable stores the number of objects literal contained in the 'quotes' array. 
+ The numberOfQuotes variable stores the number of objects literals contained in the 'quotes' array. 
  getRandomQuote is a function that takes the 'quotes' array of objects literal as argument and returns a random object from this array.
  */
 
@@ -74,21 +74,14 @@ function getRandomQuote(quotes) {
 /***
  * `printQuote` function
 ***/
-// The addQuote function expression takes a randomly selected quote object literal and adds the objects properties to the DOM. 
 
-let addQuote = (selectedQuote) => {
-console.log(selectedQuote);
+// The printQuote function executes the 'getRandomQuote' functions, then takes a randomly selected quote object literal and adds the object's properties to the DOM.
+function printQuote() {
+  getRandomQuote(quotes);
   let HTMLElement = `<p class="quote">${selectedQuote.quote}</p>
  <p class="source">${selectedQuote.source}<span class="citation">${selectedQuote.citation}</span><span class="year">${selectedQuote.year}</span></p>`;
 
   document.querySelector('.quote-box').innerHTML = HTMLElement;
-}
-
-
-// The printQuote function executes both 'getRandomQuote' 'addQuote' functions. 
-function printQuote() {
-  getRandomQuote(quotes);
-  addQuote(selectedQuote);
 }
 /***
  * click event listener for the print quote button
